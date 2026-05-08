@@ -31,6 +31,13 @@ These pages and flows are wired end-to-end (UI + tRPC + database). They render w
 These are visible to visitors but the underlying capability is not real yet. We replaced the placeholder UI with a "Coming soon" message so the client and end-users aren't misled.
 
 - **Customer login / account** (`/login`) — currently wired to a placeholder OAuth provider (Kimi) that doesn't apply to Floor and More. No real auth, no account pages, no order history.
+- **Collections** (`/collections` and `/collections/:slug`) — list and detail pages now show a Coming soon placeholder until real collections are loaded.
+- **Browse by Room** (`/rooms`, navbar "Rooms" link) — Coming soon placeholder.
+- **Our Work** (`/work`) — Coming soon placeholder until the project portfolio is supplied.
+- **Contact info on /contact** (address, phone, WhatsApp, email, social block) — replaced with a Coming soon banner. The contact form on the same page still works.
+- **Footer contact info** (phone, email, WhatsApp, hours) — replaced with Coming soon labels.
+- **Business QR** social/contact links (phone, email, WhatsApp, Instagram) — disabled with Coming soon labels. Real navigation (Catalogue, Quote, Showroom) still works.
+- **Mobile product filters** (`/products`) — the desktop filter pill bar was overwhelming on phone screens, so on mobile we replaced it with a Filters — Coming soon pill. Search still works on mobile; full filters still work on desktop. A proper mobile filter drawer can come later.
 
 ## Not done — backend / operational gaps (invisible to visitors)
 

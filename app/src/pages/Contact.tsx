@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router";
 import { trpc } from "@/providers/trpc";
-import { MapPin, Phone, MessageCircle, Mail, CheckCircle } from "lucide-react";
+import { Clock, CheckCircle } from "lucide-react";
 
 export default function Contact() {
   const submitContact = trpc.contact.submit.useMutation();
-  const { data: showroom } = trpc.showroom.info.useQuery();
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ name: "", phone: "", email: "", subject: "", message: "" });
 
@@ -107,52 +105,19 @@ export default function Contact() {
             )}
           </div>
 
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin size={18} className="text-gold shrink-0 mt-1" />
-                <div>
-                  <p className="text-sm font-medium text-forest">{showroom?.address}</p>
-                  <p className="text-sm text-forest">{showroom?.city}, {showroom?.province} {showroom?.postalCode}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone size={18} className="text-gold shrink-0" />
-                <a href={`tel:${showroom?.phone}`} className="text-sm text-forest hover:text-forest-600">{showroom?.phone}</a>
-              </div>
-              <div className="flex items-center gap-3">
-                <MessageCircle size={18} className="text-gold shrink-0" />
-                <a href={`https://wa.me/${showroom?.whatsapp?.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" className="text-sm text-gold hover:underline">
-                  Text us on WhatsApp
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <Mail size={18} className="text-gold shrink-0" />
-                <a href={`mailto:${showroom?.email}`} className="text-sm text-forest-400 hover:text-forest">{showroom?.email}</a>
-              </div>
+          {/* Contact Info — Coming Soon */}
+          <div className="bg-forest-50 border border-linen rounded-xl p-8 flex flex-col justify-center items-start gap-4">
+            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-ivory">
+              <Clock size={20} className="text-gold" />
             </div>
-
-            <div className="pt-4 border-t border-linen">
-              <p className="text-xs text-forest font-medium mb-3">Prefer to call?</p>
-              <a href={`tel:${showroom?.phone}`} className="text-sm text-forest-400 hover:text-forest underline">
-                {showroom?.phone}
-              </a>
-            </div>
-
-            <div className="pt-4 border-t border-linen">
-              <p className="text-xs text-stone mb-3">Follow us</p>
-              <div className="flex gap-2">
-                {["Instagram", "Facebook", "Houzz"].map((social) => (
-                  <span
-                    key={social}
-                    className="w-10 h-10 rounded-full border border-linen flex items-center justify-center text-xs text-stone cursor-default"
-                  >
-                    {social.charAt(0)}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <span className="text-[10px] font-medium uppercase tracking-[0.08em] text-gold">Coming soon</span>
+            <h3 className="text-2xl font-light tracking-tight text-forest">
+              Address, phone, and email coming soon.
+            </h3>
+            <p className="text-sm text-stone leading-relaxed">
+              We're finalizing our showroom details and contact channels. For now, please use the form on the
+              left and we'll get back to you within one business day.
+            </p>
           </div>
         </div>
       </div>

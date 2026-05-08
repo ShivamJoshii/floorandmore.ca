@@ -26,15 +26,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Brand */}
           <div>
-            {/* Logo — replace this svg block with <img src="/images/logo.svg" /> once the real logo is added */}
-            <Link to="/" className="flex items-center gap-2.5 mb-4">
-              <svg width="24" height="24" viewBox="0 0 32 32" fill="none" className="text-ivory">
-                <rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />
-                <line x1="16" y1="4" x2="16" y2="28" stroke="currentColor" strokeWidth="2" />
-                <line x1="4" y1="16" x2="28" y2="16" stroke="currentColor" strokeWidth="2" />
-                <rect x="4" y="4" width="12" height="12" fill="currentColor" opacity="0.15" />
-              </svg>
-              <span className="text-sm font-medium">Floor and More</span>
+            <Link to="/" className="flex items-center mb-4">
+              <img src="/images/web.svg" alt="Floor and More" className="h-10 w-auto bg-ivory rounded p-1" />
             </Link>
             <p className="text-sm text-ivory/60 leading-relaxed mb-4">
               Premium tiles, slabs, and renovation services.

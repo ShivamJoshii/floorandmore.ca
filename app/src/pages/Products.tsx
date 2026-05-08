@@ -125,8 +125,8 @@ export default function Products() {
               />
             </div>
 
-            {/* Filter Pills */}
-            <div className="flex-1 overflow-x-auto">
+            {/* Filter Pills — desktop only. Mobile gets a Coming Soon placeholder below. */}
+            <div className="hidden md:block flex-1 overflow-x-auto">
               <div className="flex flex-wrap gap-2">
                 {Object.entries(filters).map(([key, values]) =>
                   values.map((value) => {
@@ -156,6 +156,14 @@ export default function Products() {
                     );
                   })
                 )}
+              </div>
+            </div>
+
+            {/* Mobile filters placeholder */}
+            <div className="md:hidden w-full">
+              <div className="flex items-center justify-between gap-3 px-4 py-2.5 rounded-full border-[1.5px] border-linen bg-bone/50 text-stone">
+                <span className="text-xs font-medium">Filters</span>
+                <span className="text-[10px] uppercase tracking-wider text-gold">Coming soon</span>
               </div>
             </div>
           </div>
