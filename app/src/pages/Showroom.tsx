@@ -1,14 +1,32 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { trpc } from "@/providers/trpc";
-import { MapPin, Phone, MessageCircle, Mail, Clock, ParkingCircle, CheckCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, CheckCircle } from "lucide-react";
+
+const showroom = {
+  address: "7127 Roper Road NW",
+  city: "Edmonton",
+  province: "AB",
+  postalCode: "T6K 3B3",
+  phone: "(780) 937-8600",
+  phoneHref: "+17809378600",
+  email: "info@floorandmore.ca",
+  mapUrl:
+    "https://www.google.com/maps?q=7127+Roper+Road+NW+Edmonton+AB+T6K+3B3&output=embed",
+};
+
+const hours = [
+  { day: "Monday", open: "9:00 AM", close: "6:00 PM" },
+  { day: "Tuesday", open: "9:00 AM", close: "6:00 PM" },
+  { day: "Wednesday", open: "9:00 AM", close: "6:00 PM" },
+  { day: "Thursday", open: "9:00 AM", close: "6:00 PM" },
+  { day: "Friday", open: "9:00 AM", close: "6:00 PM" },
+  { day: "Saturday", open: "10:00 AM", close: "5:00 PM" },
+  { day: "Sunday", open: "Closed", close: "Closed" },
+];
 
 export default function Showroom() {
-  const { data: showroom } = trpc.showroom.info.useQuery();
   const [bookingModal, setBookingModal] = useState(false);
   const [booked, setBooked] = useState(false);
-
-  const hours = showroom?.hours ? (typeof showroom.hours === "string" ? JSON.parse(showroom.hours) : showroom.hours) : [];
 
   const handleBooking = (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,30 +60,24 @@ export default function Showroom() {
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-gold shrink-0 mt-1" />
                 <div>
-                  <p className="text-sm font-medium text-forest">{showroom?.address}</p>
-                  <p className="text-sm text-forest">{showroom?.city}, {showroom?.province} {showroom?.postalCode}</p>
+                  <p className="text-sm font-medium text-forest">{showroom.address}</p>
+                  <p className="text-sm text-forest">{showroom.city}, {showroom.province} {showroom.postalCode}</p>
                 </div>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-gold shrink-0" />
-                <a href={`tel:${showroom?.phone}`} className="text-sm text-forest hover:text-forest-600">{showroom?.phone}</a>
-              </div>
-              <div className="flex items-center gap-3">
-                <MessageCircle size={18} className="text-gold shrink-0" />
-                <a href={`https://wa.me/${showroom?.whatsapp?.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" className="text-sm text-gold hover:underline">
-                  Text us on WhatsApp
-                </a>
+                <a href={`tel:${showroom.phoneHref}`} className="text-sm text-forest hover:text-forest-600">{showroom.phone}</a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-gold shrink-0" />
-                <a href={`mailto:${showroom?.email}`} className="text-sm text-forest-400 hover:text-forest">{showroom?.email}</a>
+                <a href={`mailto:${showroom.email}`} className="text-sm text-forest-400 hover:text-forest">{showroom.email}</a>
               </div>
               <div className="flex items-start gap-3">
                 <Clock size={18} className="text-gold shrink-0 mt-1" />
                 <div>
                   <p className="text-sm font-medium text-forest mb-2">Hours</p>
                   <div className="space-y-1">
-                    {hours.map((h: any) => (
+                    {hours.map((h) => (
                       <div key={h.day} className="flex justify-between text-xs text-stone w-48">
                         <span>{h.day}</span>
                         <span>{h.open === "Closed" ? "Closed" : `${h.open} - ${h.close}`}</span>
@@ -74,12 +86,6 @@ export default function Showroom() {
                   </div>
                 </div>
               </div>
-              {showroom?.parkingInfo && (
-                <div className="flex items-center gap-3 pt-4 border-t border-linen">
-                  <ParkingCircle size={18} className="text-gold shrink-0" />
-                  <p className="text-xs text-stone">{showroom.parkingInfo}</p>
-                </div>
-              )}
             </div>
 
             <div className="flex flex-wrap gap-3">
@@ -102,7 +108,7 @@ export default function Showroom() {
           <div className="space-y-4">
             <div className="aspect-video rounded-lg overflow-hidden bg-forest-50">
               <iframe
-                src={showroom?.mapUrl || "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885!2d-79.318!3d43.665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDM5JzU0LjAiTiA3OcKwMTknMDQuOCJX!5e0!3m2!1sen!2sca!4v1"}
+                src={showroom.mapUrl}
                 className="w-full h-full border-0"
                 allowFullScreen
                 loading="lazy"

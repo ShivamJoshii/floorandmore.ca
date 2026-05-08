@@ -19,6 +19,7 @@ import BusinessQR from "@/pages/BusinessQR";
 import Login from "@/pages/Login";
 import NotFound from "@/pages/NotFound";
 import ComingSoon from "@/components/ComingSoon";
+import ScrollToTop from "@/components/ScrollToTop";
 
 function AppLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -34,6 +35,7 @@ function AppLayout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <QuoteCartProvider>
+      <ScrollToTop />
       <Routes>
         {/* Business QR page without navbar/footer */}
         <Route path="/business-qr" element={<BusinessQR />} />

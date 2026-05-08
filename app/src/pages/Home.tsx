@@ -120,8 +120,83 @@ export default function Home() {
 
   return (
     <div className="bg-ivory">
-      {/* Hero Section - Split Canvas Scroll */}
-      <div ref={heroRef} className="relative w-full" style={{ height: "300vh" }}>
+      {/* Hero — Mobile (simple stacked) */}
+      <div className="md:hidden">
+        <div className="relative w-full h-[80vh] min-h-[520px]">
+          <img
+            src="/images/hero/hallway.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/70" />
+          <div className="relative z-10 h-full flex flex-col justify-end px-6 pb-12 text-ivory">
+            <span className="text-[10px] font-medium uppercase tracking-[0.08em] text-gold mb-3">
+              Premium Tiles, Slabs &amp; Fixtures
+            </span>
+            <div className="w-12 h-[1px] bg-gold mb-5" />
+            <h1 className="text-4xl font-light leading-[0.95] tracking-tight mb-5">
+              Surfaces that define a room.
+            </h1>
+            <p className="text-base leading-relaxed mb-7 text-ivory/85 max-w-md">
+              For homeowners, builders, and designers who care about every detail.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link
+                to="/products"
+                className="px-6 py-3 bg-ivory text-forest rounded-full text-sm font-medium"
+              >
+                Shop Products
+              </Link>
+              <Link
+                to="/showroom"
+                className="px-6 py-3 border-[1.5px] border-ivory text-ivory rounded-full text-sm font-medium"
+              >
+                Visit Showroom
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile sub-panels */}
+        <div className="px-6 py-12 bg-ivory">
+          <span className="text-[10px] font-medium uppercase tracking-[0.08em] text-gold mb-3 block">
+            Contractors &amp; Designers
+          </span>
+          <h2 className="text-3xl font-light leading-tight tracking-tight text-forest mb-5">
+            Trade pricing. Fast quotes. Real stock.
+          </h2>
+          <p className="text-base text-charcoal/80 leading-relaxed mb-7">
+            Get same-day quotes, project coordination, and contractor pricing. We understand timelines and deliverables.
+          </p>
+          <Link
+            to="/quote"
+            className="inline-flex px-7 py-3 bg-forest text-ivory rounded-full text-sm font-medium"
+          >
+            Open a Trade Account
+          </Link>
+        </div>
+
+        <div className="px-6 py-12 bg-bone">
+          <span className="text-[10px] font-medium uppercase tracking-[0.08em] text-gold mb-3 block">
+            Renovations &amp; Installation
+          </span>
+          <h2 className="text-3xl font-light leading-tight tracking-tight text-forest mb-5">
+            From selection to installation.
+          </h2>
+          <p className="text-base text-charcoal/80 leading-relaxed mb-7">
+            Full-service renovation for bathrooms, kitchens, and flooring. Our team handles demo, prep, and precision installation.
+          </p>
+          <Link
+            to="/work"
+            className="inline-flex px-7 py-3 bg-forest text-ivory rounded-full text-sm font-medium"
+          >
+            View Our Work
+          </Link>
+        </div>
+      </div>
+
+      {/* Hero — Desktop scroll-driven split canvas */}
+      <div ref={heroRef} className="hidden md:block relative w-full" style={{ height: "300vh" }}>
         <div className="sticky top-0 h-screen flex flex-col md:flex-row overflow-hidden">
           {/* Left: Image Sequence */}
           <div className="w-full md:w-1/2 h-[50vh] md:h-full relative overflow-hidden">
