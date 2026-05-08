@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 60 8% 9%;
+    --card: 38 29% 94%;
+    --card-foreground: 60 8% 9%;
+    --popover: 40 33% 97%;
+    --popover-foreground: 60 8% 9%;
+    --primary: 150 29% 17%;
+    --primary-foreground: 40 33% 97%;
+    --secondary: 38 29% 94%;
+    --secondary-foreground: 150 29% 17%;
+    --muted: 38 29% 94%;
+    --muted-foreground: 37 7% 50%;
+    --accent: 38 29% 91%;
+    --accent-foreground: 150 29% 17%;
+    --destructive: 4 51% 35%;
+    --destructive-foreground: 40 33% 97%;
+    --border: 37 29% 88%;
+    --input: 37 29% 88%;
+    --ring: 150 29% 17%;
+    --radius: 0.5rem;
+    --sidebar-background: 40 33% 97%;
+    --sidebar-foreground: 60 8% 9%;
+    --sidebar-primary: 150 29% 17%;
+    --sidebar-primary-foreground: 40 33% 97%;
+    --sidebar-accent: 38 29% 94%;
+    --sidebar-accent-foreground: 150 29% 17%;
+    --sidebar-border: 37 29% 88%;
+    --sidebar-ring: 150 29% 17%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-ivory text-charcoal font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
