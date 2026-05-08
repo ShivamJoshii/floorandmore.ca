@@ -1,39 +1,27 @@
+import { Link } from "react-router";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-function getOAuthUrl() {
-  const kimiAuthUrl = import.meta.env.VITE_KIMI_AUTH_URL;
-  const appID = import.meta.env.VITE_APP_ID;
-  const redirectUri = `${window.location.origin}/api/oauth/callback`;
-  const state = btoa(redirectUri);
-
-  const url = new URL(`${kimiAuthUrl}/api/oauth/authorize`);
-  url.searchParams.set("client_id", appID);
-  url.searchParams.set("redirect_uri", redirectUri);
-  url.searchParams.set("response_type", "code");
-  url.searchParams.set("scope", "profile");
-  url.searchParams.set("state", state);
-
-  return url.toString();
-}
-
 export default function Login() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <Card className="w-full max-w-sm">
-        <CardHeader className="text-center">
-          <CardTitle>Welcome</CardTitle>
+    <div className="min-h-screen flex items-center justify-center px-4">
+      <Card className="w-full max-w-sm text-center">
+        <CardHeader>
+          <CardTitle>Customer accounts coming soon</CardTitle>
         </CardHeader>
-        <CardContent>
-          <Button
-            className="w-full"
-            size="lg"
-            onClick={() => {
-              window.location.href = getOAuthUrl();
-            }}
-          >
-            Sign in with Kimi
-          </Button>
+        <CardContent className="space-y-4">
+          <p className="text-sm text-stone">
+            Sign-in and customer accounts aren't available yet. In the meantime, you can browse our products,
+            build a quote, or get in touch.
+          </p>
+          <div className="flex flex-col gap-2">
+            <Button asChild className="w-full" size="lg">
+              <Link to="/products">Browse Products</Link>
+            </Button>
+            <Button asChild className="w-full" size="lg" variant="outline">
+              <Link to="/contact">Contact Us</Link>
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </div>

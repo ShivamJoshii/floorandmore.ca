@@ -35,7 +35,7 @@ const QuoteCartContext = createContext<QuoteCartContextType>({
 export function QuoteCartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = useState<QuoteCartItem[]>(() => {
     try {
-      const stored = localStorage.getItem("teranova_quote_cart");
+      const stored = localStorage.getItem("floorandmore_quote_cart");
       return stored ? JSON.parse(stored) : [];
     } catch {
       return [];
@@ -43,7 +43,7 @@ export function QuoteCartProvider({ children }: { children: React.ReactNode }) {
   });
 
   useEffect(() => {
-    localStorage.setItem("teranova_quote_cart", JSON.stringify(items));
+    localStorage.setItem("floorandmore_quote_cart", JSON.stringify(items));
   }, [items]);
 
   const addItem = useCallback((newItem: QuoteCartItem) => {

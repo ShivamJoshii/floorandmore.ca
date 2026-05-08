@@ -358,7 +358,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Teranova */}
+      {/* Why Floor and More */}
       <section
         ref={(el) => { if (el) sectionsRef.current[3] = el; }}
         className="py-20 md:py-28 bg-ivory"
@@ -367,7 +367,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
             <div className="relative aspect-[4/5] rounded-lg overflow-hidden" data-animate>
               <img
-                src="/images/collections/why-teranova.jpg"
+                src="/images/collections/why-choose-us.jpg"
                 alt="Beautifully tiled bathroom"
                 className="absolute inset-0 w-full h-full object-cover"
               />

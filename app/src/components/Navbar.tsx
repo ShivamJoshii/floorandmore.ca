@@ -45,7 +45,7 @@ export default function Navbar() {
       >
         <div className="mx-auto max-w-[1400px] px-6 md:px-12">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+            {/* Logo — drop a real logo file at /public/images/logo.svg (or .png) and replace this block with <img src="/images/logo.svg" /> */}
             <Link to="/" className="flex items-center gap-2.5 shrink-0">
               <svg
                 width="28"
@@ -59,22 +59,13 @@ export default function Navbar() {
                 <line x1="4" y1="16" x2="28" y2="16" stroke="currentColor" strokeWidth="2" />
                 <rect x="4" y="4" width="12" height="12" fill="currentColor" opacity="0.15" />
               </svg>
-              <div className="flex flex-col">
-                <span
-                  className={`text-sm font-medium tracking-tight leading-none ${
-                    showSolid ? "text-forest" : "text-ivory"
-                  }`}
-                >
-                  Teranova
-                </span>
-                <span
-                  className={`text-[10px] tracking-wide leading-none ${
-                    showSolid ? "text-forest/60" : "text-ivory/60"
-                  }`}
-                >
-                  Tile &amp; Stone
-                </span>
-              </div>
+              <span
+                className={`text-sm font-medium tracking-tight leading-none ${
+                  showSolid ? "text-forest" : "text-ivory"
+                }`}
+              >
+                Floor and More
+              </span>
             </Link>
 
             {/* Desktop Nav */}
