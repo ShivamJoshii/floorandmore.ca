@@ -932,14 +932,14 @@ async function seed() {
 
   // Seed showroom
   await db.insert(showroomInfo).values({
-    name: "Teranova Showroom",
+    name: "Floor and More Showroom",
     address: "1500 Dundas Street East",
     city: "Toronto",
     province: "ON",
     postalCode: "M4L 1L4",
     phone: "(416) 555-0147",
     whatsapp: "+14165550147",
-    email: "hello@teranovatile.ca",
+    email: "hello@floorandmore.ca",
     hours: JSON.stringify([
       { day: "Monday", open: "8:00 AM", close: "6:00 PM" },
       { day: "Tuesday", open: "8:00 AM", close: "6:00 PM" },

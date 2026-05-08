@@ -11,15 +11,23 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-const links = [
-  { icon: Globe, label: "Website", href: "/", description: "teranovatile.ca" },
-  { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/14165550147", description: "Chat with us" },
-  { icon: Phone, label: "Call", href: "tel:+14165550147", description: "(416) 555-0147" },
-  { icon: Mail, label: "Email", href: "mailto:hello@teranovatile.ca", description: "hello@teranovatile.ca" },
+type QRLink = {
+  icon: typeof Globe;
+  label: string;
+  href: string;
+  description: string;
+  comingSoon?: boolean;
+};
+
+const links: QRLink[] = [
+  { icon: Globe, label: "Website", href: "/", description: "floorandmore.ca" },
   { icon: BookOpen, label: "Catalogue", href: "/products", description: "View Product Catalogue" },
   { icon: FileText, label: "Get a Quote", href: "/quote", description: "Request a Free Quote" },
-  { icon: MapPin, label: "Visit Showroom", href: "/showroom", description: "1500 Dundas St E, Toronto" },
-  { icon: Instagram, label: "Instagram", href: "https://instagram.com/teranovatile", description: "@teranovatile" },
+  { icon: MapPin, label: "Visit Showroom", href: "/showroom", description: "Address coming soon" },
+  { icon: MessageCircle, label: "WhatsApp", href: "#", description: "Coming soon", comingSoon: true },
+  { icon: Phone, label: "Call", href: "#", description: "Coming soon", comingSoon: true },
+  { icon: Mail, label: "Email", href: "#", description: "Coming soon", comingSoon: true },
+  { icon: Instagram, label: "Instagram", href: "#", description: "Coming soon", comingSoon: true },
 ];
 
 export default function BusinessQR() {
@@ -40,25 +48,39 @@ export default function BusinessQR() {
               <rect x="4" y="4" width="12" height="12" fill="currentColor" opacity="0.15" />
             </svg>
           </div>
-          <p className="text-xs text-gold mb-1">@teranovatile</p>
+          <p className="text-xs text-gold mb-1">Floor and More</p>
           <p className="text-sm text-ivory/70">Premium tiles, slabs &amp; renovation services.</p>
         </div>
 
         {/* Links */}
         <div className="space-y-3 mb-8">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target={link.href.startsWith("http") || link.href.startsWith("tel:") || link.href.startsWith("mailto:") ? "_blank" : undefined}
-              rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="flex items-center gap-4 w-full h-[52px] px-5 rounded-full bg-ivory/[0.08] border border-ivory/[0.15] text-ivory hover:bg-ivory/[0.15] transition-colors group"
-            >
-              <link.icon size={20} className="text-gold shrink-0" />
-              <span className="flex-1 text-sm text-left">{link.label}</span>
-              <ArrowRight size={16} className="text-ivory/40 group-hover:text-ivory/60 transition-colors" />
-            </a>
-          ))}
+          {links.map((link) => {
+            if (link.comingSoon) {
+              return (
+                <div
+                  key={link.label}
+                  className="flex items-center gap-4 w-full h-[52px] px-5 rounded-full bg-ivory/[0.04] border border-ivory/[0.10] text-ivory/40 cursor-not-allowed"
+                >
+                  <link.icon size={20} className="text-gold/50 shrink-0" />
+                  <span className="flex-1 text-sm text-left">{link.label}</span>
+                  <span className="text-[10px] uppercase tracking-wider text-ivory/40">Coming soon</span>
+                </div>
+              );
+            }
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target={link.href.startsWith("http") || link.href.startsWith("tel:") || link.href.startsWith("mailto:") ? "_blank" : undefined}
+                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="flex items-center gap-4 w-full h-[52px] px-5 rounded-full bg-ivory/[0.08] border border-ivory/[0.15] text-ivory hover:bg-ivory/[0.15] transition-colors group"
+              >
+                <link.icon size={20} className="text-gold shrink-0" />
+                <span className="flex-1 text-sm text-left">{link.label}</span>
+                <ArrowRight size={16} className="text-ivory/40 group-hover:text-ivory/60 transition-colors" />
+              </a>
+            );
+          })}
         </div>
 
         {/* Team */}
@@ -93,7 +115,7 @@ export default function BusinessQR() {
         {/* Footer */}
         <div className="text-center mt-8 pt-6 border-t border-ivory/10">
           <p className="text-xs text-ivory/40 mb-1">Scan to save our contact</p>
-          <p className="text-xs text-ivory/25">Teranova Tile &amp; Stone  2026</p>
+          <p className="text-xs text-ivory/25">© 2026 Floor and More</p>
         </div>
       </div>
     </div>
