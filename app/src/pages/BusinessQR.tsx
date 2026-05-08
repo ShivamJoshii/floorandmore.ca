@@ -41,12 +41,7 @@ export default function BusinessQR() {
         <div className="text-center mb-8">
           {/* Logo */}
           <div className="flex justify-center mb-4">
-            <svg width="64" height="64" viewBox="0 0 32 32" fill="none" className="text-ivory">
-              <rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />
-              <line x1="16" y1="4" x2="16" y2="28" stroke="currentColor" strokeWidth="2" />
-              <line x1="4" y1="16" x2="28" y2="16" stroke="currentColor" strokeWidth="2" />
-              <rect x="4" y="4" width="12" height="12" fill="currentColor" opacity="0.15" />
-            </svg>
+            <img src="/images/web.svg" alt="Floor and More" className="h-16 w-auto bg-ivory rounded-lg p-2" />
           </div>
           <p className="text-xs text-gold mb-1">Floor and More</p>
           <p className="text-sm text-ivory/70">Premium tiles, slabs &amp; renovation services.</p>

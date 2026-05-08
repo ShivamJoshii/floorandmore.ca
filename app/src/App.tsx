@@ -18,6 +18,7 @@ import Contact from "@/pages/Contact";
 import BusinessQR from "@/pages/BusinessQR";
 import Login from "@/pages/Login";
 import NotFound from "@/pages/NotFound";
+import ComingSoon from "@/components/ComingSoon";
 
 function AppLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -132,6 +133,17 @@ export default function App() {
           element={
             <AppLayout>
               <Contact />
+            </AppLayout>
+          }
+        />
+        <Route
+          path="/rooms"
+          element={
+            <AppLayout>
+              <ComingSoon
+                title="Browse by Room — coming soon."
+                description="We're putting together curated picks for bathrooms, kitchens, living spaces, outdoor, and commercial. In the meantime, browse the full product catalog."
+              />
             </AppLayout>
           }
         />
